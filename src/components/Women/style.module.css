@@ -1,0 +1,28 @@
+.women {
+    width: 1100px;
+    height: 300px;
+    top: 132px;
+    padding: 10px;
+    margin-top: 70px;
+    margin-left: 120px;
+
+    background: #2C3E50;
+    border-radius: 20px;
+
+}
+
+.form img {
+    display: inline-block;
+    padding: 35px;
+    margin-left: 35px;
+}
+
+.female {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #FFFFFF;
+    text-align: center;
+}
