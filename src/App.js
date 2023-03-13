@@ -1,11 +1,11 @@
-import Form from "./components/Form/Form";
+import AddUser from "./components/AddUser";
 import Men from "./components/Men/Men";
 import Women from "./components/Women/Women";
 
 function App() {
   return (
     <div> 
-      <Form />
+      <AddUser />
       <Men />
       <Women />
     </div>
