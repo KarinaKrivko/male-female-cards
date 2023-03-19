@@ -1,70 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../store/actions/users";
 import s from "./style.module.css";
 
-function AddUser() {
+const AddUserForm = () => {
   const [name, setName] = useState("");
-  const [users, setUser] = useState([]);
-  const [avatar, setAvatar] = useState([]);
-  const [sex, setSex] = useState("");
-
-  useEffect(() => {
-    const savedUser = localStorage.getItem("users");
-    setUser(savedUser ? JSON.parse(savedUser) : []);
-  }, []);
-
+  const [gender, setGender] = useState("");
+  const [avatar, setAvatar] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
-
     event.preventDefault();
-    const newUser = { name, avatar, sex };
-    const updatedUser = [...users, newUser];
-    setName(updatedUser);
-    localStorage.setItem("users", JSON.stringify(updatedUser));
+    const user = {
+      name,
+      gender,
+      avatar
+    };
+    dispatch(addUser(user));
     setName("");
-
+    setGender("");
+    setAvatar("");
   };
-
-  const handleName = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleAvatar = (event) => {
-    setAvatar(event.target.value);
-  };
-
-  const handleSex = (event) => {
-    setSex(event.target.value);
-  };
-
 
   return (
-    <div>
-      <form  className={s.form} onSubmit={handleSubmit}>
-        <input className={s.name}
-          placeholder="Name"
-          type="name"
+    <form onSubmit={handleSubmit} className={s.form}>
+      <label>
+        <input
+          className={s.name}
+          type="text"
+          placeholder=" Name"
           value={name}
-          onChange={handleName}
+          onChange={(e) => setName(e.target.value)}
         />
-
-        <input className={s.avatarLink}
-          placeholder="Link to avatar"
-          type="avatar"
+      </label>
+      <br />
+      <label>
+        <input
+          className={s.avatarLink}
+          type="text"
+          placeholder=" Link to avatar"
           value={avatar}
-          onChange={handleAvatar}
+          onChange={(e) => setAvatar(e.target.value)}
         />
-
-        <input className={s.sex} 
-          placeholder="Sex"
-          type="sex"
-          value={sex}
-          onChange={handleSex}
-        />
-
-        <button className={s.btn} type="submit">Add</button>
-      </form>
-    </div>
+      </label>
+      <br />
+      <label>
+        <select
+          className={s.gender}
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <option value="male"> Select gender</option>
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
+      </label>
+      <br />
+      <button className={s.btn} type="submit">
+        Add user
+      </button>
+    </form>
   );
-}
+};
 
-export default AddUser;
+export default AddUserForm;

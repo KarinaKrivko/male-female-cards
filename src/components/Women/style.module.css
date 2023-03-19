@@ -11,6 +11,11 @@
 
 }
 
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .form img {
     display: inline-block;
     padding: 35px;
@@ -25,4 +30,17 @@
     line-height: 36px;
     color: #FFFFFF;
     text-align: center;
+}
+
+.image {
+
+    width: 114px;
+    height: 146px;
+    left: 204px;
+    top: 400px;
+}
+
+.name {
+    color: white;
+    display: block;
 }

@@ -8,7 +8,6 @@
 
     background: #2C3E50;
     border-radius: 20px;
-
 }
 
 .form {
@@ -26,4 +25,17 @@
     line-height: 36px;
     color: #FFFFFF;
     text-align: center;
+}
+
+.image {
+
+    width: 114px;
+    height: 146px;
+    left: 204px;
+    top: 400px;
+}
+
+.name {
+    color: white;
+    display: block;
 }
